@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aockit"
-version = "1.0.0"
+version = "1.0.1"
 description = ""
 authors = ["Scott Odle <scott@sjodle.com>"]
 readme = "README.md"
