@@ -21,3 +21,6 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         poetry run pylint aockit
+    - name: Pytest
+      run: |
+        poetry run coverage run -m unittest
