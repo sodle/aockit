@@ -58,6 +58,16 @@ class TestInputs(unittest.TestCase):
         actual = list(inputs.read_int_groups(path))
         self.assertEqual(expected, actual)
 
+    def test_char_grid(self):
+        path = asset_path.joinpath('input_char_grid.txt')
+        g = inputs.read_char_grid(path)
+        self.assertEqual('e', g[2, 1])
+
+    def test_int_grid(self):
+        path = asset_path.joinpath('input_int_grid.txt')
+        g = inputs.read_int_grid(path)
+        self.assertEqual(2, g[3, 3])
+
 
 if __name__ == '__main__':
     unittest.main()
