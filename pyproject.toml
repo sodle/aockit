@@ -14,6 +14,7 @@ ignore-paths = '^aockit/test/.*$'
 [tool.poetry.group.dev.dependencies]
 coverage = "^7.3.4"
 pylint = "^3.0.3"
+tomli = "^2.0.1"
 
 [build-system]
 requires = ["poetry-core"]
