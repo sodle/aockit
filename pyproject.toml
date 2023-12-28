@@ -8,6 +8,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 
+[tool.pylint.MASTER]
+ignore-paths = '^aockit/test/.*$'
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^7.3.4"

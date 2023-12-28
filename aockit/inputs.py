@@ -1,3 +1,4 @@
+"""Utility functions for reading puzzle input from a file."""
 from pathlib import Path
 from collections.abc import Iterator
 
@@ -11,6 +12,13 @@ T = TypeVar("T")
 
 def read_lines(path: Path, parser: Callable[[str], T],
                include_blank_lines: bool = False, strip: bool = True) -> Iterator[T]:
+    """
+
+    :param path:
+    :param parser:
+    :param include_blank_lines:
+    :param strip:
+    """
     with path.open() as f:
         line = f.readline()
         while len(line) > 0:
@@ -27,15 +35,32 @@ def read_lines(path: Path, parser: Callable[[str], T],
             line = f.readline()
 
 
-def read_strings(path: Path, include_blank_lines: bool = False, strip: bool = True) -> Iterator[str]:
+def read_strings(path: Path, include_blank_lines: bool = False,
+                 strip: bool = True) -> Iterator[str]:
+    """
+
+    :param path:
+    :param include_blank_lines:
+    :param strip:
+    :return:
+    """
     return read_lines(path, lambda line: line, include_blank_lines=include_blank_lines, strip=strip)
 
 
 def read_ints(path: Path) -> Iterator[int]:
-    return read_lines(path, lambda line: int(line))
+    """
+
+    :param path:
+    :return:
+    """
+    return read_lines(path, int)
 
 
 def read_string_groups(path: Path) -> Iterator[list[str]]:
+    """
+
+    :param path:
+    """
     group = []
 
     for line in read_strings(path, include_blank_lines=True):
@@ -51,6 +76,10 @@ def read_string_groups(path: Path) -> Iterator[list[str]]:
 
 
 def read_int_groups(path: Path) -> Iterator[list[int]]:
+    """
+
+    :param path:
+    """
     group = []
 
     for line in read_strings(path, include_blank_lines=True):
@@ -66,11 +95,16 @@ def read_int_groups(path: Path) -> Iterator[list[int]]:
 
 
 def read_char_grid(path: Path) -> Grid[str]:
+    """
+
+    :param path:
+    :return:
+    """
     width = 0
     height = 0
     content = []
 
-    for row in read_lines(path, lambda line: list(line)):
+    for row in read_lines(path, lambda line: [*line]):
         width = len(row)
         content += row
         height += 1
@@ -79,6 +113,11 @@ def read_char_grid(path: Path) -> Grid[str]:
 
 
 def read_int_grid(path: Path) -> Grid[int]:
+    """
+
+    :param path:
+    :return:
+    """
     width = 0
     height = 0
     content = []
