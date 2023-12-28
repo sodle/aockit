@@ -23,6 +23,12 @@ Utility functions for reading puzzle input from a file.
   - Reads each line from the file at `path` and parses it as an integer.
   - Lines are organized into groups, separated by blank lines in the file.
   - Each group is yielded as a list of integers.
+- `read_char_grid(path: Path) -> Grid[str]`
+  - Reads a grid of characters from the path.
+  - See [Grid docs](#grid-data-structure-aockitgrid) for more info.
+- `read_int_grid(path: Path) -> Grid[int]`
+  - Reads a grid of integers from the path.
+  - See [Grid docs](#grid-data-structure-aockitgrid) for more info.
 
 ## Grid Data Structure (`aockit.grid`)
 A two-dimensional grid, which can store any data type. Can be indexed or iterated easily by rows or columns. Extremely useful for many puzzles.
